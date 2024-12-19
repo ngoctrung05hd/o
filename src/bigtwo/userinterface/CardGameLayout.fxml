@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="556.0" prefWidth="733.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bigtwo.userinterface.CardGameController">
+   <children>
+      <!-- Bottom Buttons -->
+      <HBox alignment="CENTER" spacing="20.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
+         <children>
+              <Button fx:id="endTurnButton" text="Kết thúc lượt" />
+              <Button fx:id="playButton" text="Đánh bài" />
+         </children>
+      </HBox>
+
+      <!-- Player Hand -->
+      <HBox alignment="CENTER" spacing="20.0" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0">
+         <children>
+            <HBox fx:id="handBox" alignment="CENTER" prefHeight="126.0" prefWidth="423.0" styleClass="hand-box" stylesheets="@style.css" />
+         </children>
+      </HBox>
+
+      <!-- Last CardList -->
+      <HBox alignment="CENTER" spacing="10.0" AnchorPane.topAnchor = "210.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <children>
+            <HBox fx:id="lastCardListBox" alignment="CENTER" prefHeight="25.0" prefWidth="100.0" styleClass="speacial-card-box" stylesheets="@style.css" />
+         </children>
+      </HBox>
+
+      <HBox fx:id="opponentCard1" alignment="CENTER" layoutX="89.0" layoutY="57.0" prefHeight="126.0" prefWidth="55.0" spacing="10.0" stylesheets="@style.css" AnchorPane.leftAnchor="89.0" AnchorPane.topAnchor="57.0" />
+      <Label fx:id="cardNums1" layoutX="66.0" layoutY="108.0" text="52" textFill="#0ffcf5" AnchorPane.leftAnchor="127.0" AnchorPane.topAnchor="108.0">
+         <font>
+            <Font name="Arial Bold" size="20.0" />
+         </font>
+         <effect>
+            <Glow />
+         </effect>
+      </Label>
+      <HBox fx:id="opponentCard2" alignment="CENTER" layoutX="301.0" layoutY="57.0" prefHeight="126.0" prefWidth="55.0" spacing="10.0" stylesheets="@style.css" />
+      <Label fx:id="cardNums2" text="52" textFill="#0ffcf5" AnchorPane.leftAnchor="338.0" AnchorPane.topAnchor="108.0">
+         <font>
+            <Font name="Arial Bold" size="20.0" />
+         </font>
+         <effect>
+            <Glow />
+         </effect>
+      </Label>
+      <HBox fx:id="opponentCard3" alignment="CENTER" layoutX="502.0" layoutY="57.0" prefHeight="126.0" prefWidth="55.0" spacing="10.0" stylesheets="@style.css" />
+      <Label fx:id="cardNums3" text="52" textFill="#0ffcf5" AnchorPane.leftAnchor="540.0" AnchorPane.topAnchor="108.0">
+         <font>
+            <Font name="Arial Bold" size="20.0" />
+         </font>
+         <effect>
+            <Glow />
+         </effect>
+      </Label>
+   </children>
+</AnchorPane>

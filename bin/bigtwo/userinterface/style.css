@@ -1,0 +1,20 @@
+.toggle-button {
+    -fx-background-color: transparent; /* Xóa màu nền */
+    -fx-border-width: 0; /* Xóa đường viền */
+    -fx-focus-color: transparent; /* Xóa viền khi chọn */
+    -fx-faint-focus-color: transparent; /* Xóa màu mờ của viền */
+}
+.hand-box {
+    -fx-spacing: -50; /* Khoảng cách âm giữa các phần tử */
+    -fx-alignment: center; /* Căn chỉnh giữa */
+    -fx-padding: 0; /* Padding bằng 0 */
+}
+.speacial-card-box {
+    -fx-spacing: -70; /* Khoảng cách âm giữa các phần tử */
+    -fx-alignment: center; /* Căn chỉnh giữa */
+    -fx-padding: 0; /* Padding bằng 0 */
+}
+.text-bordered {
+    -fx-effect: dropshadow(gaussian, black, 3, 0.5, 0, 0);
+    -fx-text-fill: white; /* Màu chữ */
+}

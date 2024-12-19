@@ -1,0 +1,97 @@
+.toggle-button {
+    -fx-background-color: transparent; /* Xóa màu nền */
+    -fx-border-width: 0; /* Xóa đường viền */
+    -fx-focus-color: transparent; /* Xóa viền khi chọn */
+    -fx-faint-focus-color: transparent; /* Xóa màu mờ của viền */
+}
+.hand-box {
+    -fx-spacing: -50; /* Khoảng cách âm giữa các phần tử */
+    -fx-alignment: center; /* Căn chỉnh giữa */
+    -fx-padding: 0; /* Padding bằng 0 */
+}
+.speacial-card-box {
+    -fx-spacing: -70; /* Khoảng cách âm giữa các phần tử */
+    -fx-alignment: center; /* Căn chỉnh giữa */
+    -fx-padding: 0; /* Padding bằng 0 */
+}
+.text-bordered {
+    -fx-effect: dropshadow(gaussian, black, 3, 0.5, 0, 0);
+    -fx-text-fill: white; /* Màu chữ */
+}
+.root {
+    -fx-background-image: url("file:/C:/Users/ngoct/eclipse-workspace/OOP/src/image/player/background2.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: cover;
+    -fx-background-position: center center;
+}
+.hand-box-text{
+    -fx-spacing: 0; /* Khoảng cách âm giữa các phần tử */
+    -fx-alignment: center; /* Căn chỉnh giữa */
+    -fx-padding: 0; /* Padding bằng 0 */
+}
+.toggle-button-text{
+    -fx-background-color: transparent; /* Xóa màu nền */
+    -fx-border-width: 5; /* Xóa đường viền */
+    -fx-focus-color: transparent; /* Xóa viền khi chọn */
+    -fx-faint-focus-color: transparent; /* Xóa màu mờ của viền */
+}
+.combo-box {
+    -fx-background-color: linear-gradient(to bottom, #ff8c00, #ff5e00); /* Màu nền gradient */
+    -fx-background-radius: 5; /* Bo tròn góc */
+    -fx-border-color: #ff8c00; /* Màu viền */
+    -fx-border-width: 2px; /* Độ dày viền */
+    -fx-border-radius: 5; /* Bo tròn viền */
+    -fx-text-fill: white; /* Màu chữ */
+    -fx-font-size: 14px; /* Kích thước chữ */
+    -fx-font-weight: bold; /* Độ đậm chữ */
+    -fx-padding: 5 10; /* Khoảng cách bên trong */
+    -fx-alignment: center; /* Căn giữa */
+    -fx-effect: dropshadow(gaussian, #000, 8, 0.3, 0, 3); /* Đổ bóng */
+}
+.combo-box:hover {
+    -fx-background-color: linear-gradient(to bottom, #ffa726, #ff8c00); /* Hiệu ứng hover */
+}
+.combo-box .arrow {
+    -fx-background-color: white; /* Màu mũi tên dropdown */
+    -fx-border-radius: 3;
+}
+
+.text-field {
+    -fx-background-color: linear-gradient(to bottom, #ff8c00, #ff5e00); /* Màu nền gradient */
+    -fx-background-radius: 5; /* Bo tròn góc */
+    -fx-border-color: #ff8c00; /* Màu viền */
+    -fx-border-width: 2px; /* Độ dày viền */
+    -fx-border-radius: 5; /* Bo tròn viền */
+    -fx-text-fill: black; /* Màu chữ */
+    -fx-font-size: 14px; /* Kích thước chữ */
+    -fx-font-weight: bold; /* Độ đậm chữ */
+    -fx-padding: 5 10; /* Khoảng cách bên trong */
+    -fx-alignment: center; /* Căn giữa */
+    -fx-effect: dropshadow(gaussian, #000, 8, 0.3, 0, 3); /* Đổ bóng */
+}
+.text-field:hover {
+    -fx-background-color: linear-gradient(to bottom, #ffa726, #ff8c00); /* Hiệu ứng hover */
+}
+.play-again-button {
+    -fx-background-color: linear-gradient(to bottom, #ff8c00, #ff5e00), #000; /* Màu nền và hiệu ứng */
+    -fx-background-insets: 0, 2; /* Hiệu ứng viền kép nổi */
+    -fx-background-radius: 5; /* Bo tròn góc nhẹ */
+    -fx-border-color: #ff8c00; /* Màu viền cam */
+    -fx-border-width: 3px; /* Độ dày viền */
+    -fx-border-radius: 5; /* Bo tròn viền */
+    -fx-text-fill: white; /* Màu chữ trắng */
+    -fx-font-size: 18px; /* Kích thước chữ */
+    -fx-font-weight: bold; /* Độ đậm của chữ */
+    -fx-padding: 5 10; /* Khoảng cách bên trong nút */
+    -fx-alignment: center; /* Căn giữa nội dung */
+    -fx-effect: dropshadow(gaussian, #000, 8, 0.3, 0, 3); /* Đổ bóng để tạo chiều sâu */
+    -fx-cursor: hand; /* Con trỏ chuột dạng bàn tay khi hover */
+}
+
+.play-again-button:hover {
+    -fx-background-color: linear-gradient(to bottom, #ffa726, #ff8c00); /* Hiệu ứng hover */
+    -fx-effect: dropshadow(gaussian, #000, 12, 0.4, 0, 5); /* Đổ bóng mạnh hơn */
+}
+
+
+
