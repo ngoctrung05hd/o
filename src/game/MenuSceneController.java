@@ -44,8 +44,6 @@ public class MenuSceneController {
 	private final List<TextField> nameFields = new ArrayList<>();
 	@FXML
 	private VBox nameBoxContainer;
-	@FXML
-	private ToggleButton graphicButton;
 
 	@FXML
 	public void initialize() {
@@ -56,9 +54,6 @@ public class MenuSceneController {
 		setGraphicButton(startGameButton);
 		setGraphicButton(quitGameButton);
 		setGraphicButton(playGameButton);
-		
-		graphicButton.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
-    	graphicButton.getStyleClass().add("play-again-button");
 		
 
 		// Ẩn các thành phần không cần thiết
@@ -209,7 +204,7 @@ public class MenuSceneController {
 			Scene scene = new Scene(root);
 			stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 			stage.setScene(scene);
-			stage.setTitle("Card Game GUI");
+			stage.setTitle("Game Danh Bai Vippro");
 			stage.show();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block

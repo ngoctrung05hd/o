@@ -16,7 +16,7 @@
          <children>
               <Button fx:id="endTurnButton" text="Kết thúc lượt" />
               <Button fx:id="playButton" text="Đánh bài" />
-            <Label fx:id="playRole" prefHeight="17.0" prefWidth="201.0" text="Label" />
+            <Label fx:id="playRole" prefHeight="17.0" prefWidth="306.0" text="Label" />
          </children>
       </HBox>
 
@@ -34,7 +34,7 @@
          <children>
             <Button fx:id="prevNeedToDefendButton" onAction="#shiftNeedToDefendCardsLeft" prefHeight="25.0" prefWidth="31.0" text="&lt;" />
             <HBox fx:id="needToDefendCardsBox" prefHeight="25.0" prefWidth="100.0" />
-            <Button onAction="#shiftNeedToDefendCardsRight" prefHeight="25.0" prefWidth="31.0" text="&gt;" />
+            <Button fx:id="nextNeedToDefendButton" onAction="#shiftNeedToDefendCardsRight" prefHeight="25.0" prefWidth="31.0" text="&gt;" />
          </children>
       </HBox>
 
@@ -111,7 +111,7 @@
          <children>
             <StackPane prefHeight="205.0" prefWidth="560.0">
                <children>
-                  <Label alignment="CENTER" prefHeight="111.0" prefWidth="491.0" text="Game over" />
+                  <Label fx:id="endGameText" alignment="CENTER" prefHeight="111.0" prefWidth="491.0" text="Game over" />
                </children>
             </StackPane>
             <HBox alignment="BOTTOM_CENTER" prefHeight="27.0" prefWidth="560.0" spacing="200.0" translateY="83.0">

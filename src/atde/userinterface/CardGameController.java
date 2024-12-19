@@ -58,7 +58,9 @@ public class CardGameController {
     @FXML
     private HBox opponentCard3;
     @FXML
-    private Button prevNeedToDefendButton, nextNeedToDefendButton, prevUsedButton, nextUsedButton;
+    private Button prevNeedToDefendButton, prevUsedButton, nextUsedButton;
+    @FXML
+    private Button nextNeedToDefendButton;
     @FXML
     private Button prevButton, nextButton, endTurnButton, playButton;
     @FXML
@@ -86,15 +88,36 @@ public class CardGameController {
     private Label playRole;
     @FXML
     private VBox endGamePane;
+    @FXML
+    private Label endGameText;
 
     public List<Player> players;
     
     public ArrayList <Player> playersList;
 
     public Player player;
+	private Member winner;
 
     @FXML
     public void initialize() {
+    	endGamePane.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
+    	endGamePane.getStyleClass().add("vbox");
+    	endGamePane.setVisible(false);
+    	setGraphicButton(newGameButton);
+    	setGraphicButton(quitGameButton);
+    	setGraphicButton(playButton);
+    	setGraphicButton(endTurnButton);
+    	setGraphicButton(prevButton);
+    	setGraphicButton(prevNeedToDefendButton);
+    	setGraphicButton(nextNeedToDefendButton);
+    	setGraphicButton(prevUsedButton);
+    	setGraphicButton(nextUsedButton);
+    	setGraphicButton(nextButton);
+    	setGraphicLabel(player1Name);
+    	setGraphicLabel(player2Name);
+    	setGraphicLabel(player3Name);
+    	setGraphicLabel(playRole);
+    	setGraphicLabel(endGameText);
     	
     }
 
@@ -150,17 +173,6 @@ public class CardGameController {
         }
     }
     private void resize() {
-    	endGamePane.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
-    	endGamePane.getStyleClass().add("vbox");
-    	endGamePane.setVisible(false);
-    	newGameButton.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
-    	newGameButton.getStyleClass().add("play-again-button");
-    	quitGameButton.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
-    	quitGameButton.getStyleClass().add("play-again-button");
-    	playButton.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
-    	playButton.getStyleClass().add("play-again-button");
-    	endTurnButton.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
-    	endTurnButton.getStyleClass().add("play-again-button");
         setHandCount(player.getHand().size());
         setNeedToDefendCardsCount(player.getNeedToDefend().size());
         setUsedCardsCount(player.getCardsUsed().size());
@@ -218,6 +230,7 @@ public class CardGameController {
         if (graphicMode) {
         	handBox.getStyleClass().remove("hand-box-text");
     		handBox.getStyleClass().add("hand-box");
+    		System.out.println("gay");
             } else {
             handBox.getStyleClass().add("hand-box");
             handBox.getStyleClass().add("hand-box-text");
@@ -252,6 +265,8 @@ public class CardGameController {
             cardButton.setOnAction(e -> {
                 handStates.set(index, cardButton.isSelected());
                 playButton.setDisable(!checkMove());
+                System.out.println(player.getNeedToDefend().CardListToString());
+                System.out.println(handStates);
                 if(handStates.get(index)) {
                     cardButton.setTranslateY(-20);
                 } else {
@@ -271,6 +286,7 @@ public class CardGameController {
         if (graphicMode) {
         	needToDefendCardsBox.getStyleClass().remove("hand-box-text");
         	needToDefendCardsBox.getStyleClass().add("hand-box");
+    		System.out.println("gay");
             } else {
             needToDefendCardsBox.getStyleClass().add("hand-box");
             needToDefendCardsBox.getStyleClass().add("hand-box-text");
@@ -303,6 +319,7 @@ public class CardGameController {
             cardButton.setOnAction(e -> {
                 needToDefendCardsStates.set(index, cardButton.isSelected());
                 playButton.setDisable(!checkMove());
+                System.out.println(needToDefendCardsStates);
                 if(needToDefendCardsStates.get(index)) {
                     cardButton.setTranslateY(-20);
                 } else {
@@ -325,6 +342,7 @@ public class CardGameController {
    	 	if (graphicMode) {
    	 		usedCardsBox.getStyleClass().remove("hand-box-text");
    	 		usedCardsBox.getStyleClass().add("hand-box");
+   	 		System.out.println("gay");
    	 		} else {
    	 			usedCardsBox.getStyleClass().add("hand-box");
    	 			usedCardsBox.getStyleClass().add("hand-box-text");
@@ -496,7 +514,8 @@ public class CardGameController {
     
     public void endGamePane() {
     	endGamePane.setVisible(true);
-    	gamePlaying = false;
+    	endGameText.setText(winner.getName() + " la nguoi chien thang");
+    	
     }
     @FXML
     private void newGame(ActionEvent e) {
@@ -507,17 +526,40 @@ public class CardGameController {
     @FXML
     private void quitGame(ActionEvent e) {
     	try {
-    	FXMLLoader loader = new FXMLLoader(getClass().getResource("/Menu/Menu.fxml"));
+    	FXMLLoader loader = new FXMLLoader(getClass().getResource("/Game/Menu.fxml"));
 		Parent root = loader.load();
+		
+		root.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
+		root.getStyleClass().add("root");
 		Scene scene = new Scene(root);
 		Stage stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
 		stage.setScene(scene);
 		stage.setTitle("Card Game GUI");
 		stage.show();
-	} catch (IOException e1) {
+    	} catch (IOException e1) {
 		// TODO Auto-generated catch block
 		e1.printStackTrace();
 	}
     	
     }
+    
+    public boolean isGraphicMode() {
+		return graphicMode;
+	}
+
+	public void setGraphicMode(boolean graphicMode) {
+		this.graphicMode = graphicMode;
+	}
+	private void setGraphicButton(Button button) {
+    	button.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
+    	button.getStyleClass().add("play-again-button");
+    }
+	private void setGraphicLabel(Label label) {
+    	label.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
+    	label.getStyleClass().add("label-style");
+    	System.out.print(1);
+    }
+	public void setWinner(Member member) {
+		winner = member;
+	}
 }

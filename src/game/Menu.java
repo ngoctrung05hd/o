@@ -21,7 +21,7 @@ public class Menu extends Application{
         // Tạo scene
         Scene scene = new Scene(root);
         primaryStage.setScene(scene);
-        primaryStage.setTitle("Card Game GUI");
+        primaryStage.setTitle("Game Danh Bai Vippro");
         primaryStage.show();
 	}
 	

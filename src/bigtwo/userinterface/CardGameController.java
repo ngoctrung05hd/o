@@ -1,18 +1,28 @@
 package bigtwo.userinterface;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 import bigtwo.core.*;
+import bigtwo.gamelogic.Deck;
+import bigtwo.member.Member;
 import bigtwo.member.Player;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 
 public class CardGameController {
 	private final ArrayList<Boolean> handStates = new ArrayList<>();       // Trạng thái các lá bài trên tay
@@ -41,15 +51,41 @@ public class CardGameController {
     private Label cardNums2;
     @FXML
     private Label cardNums3;
+    @FXML
+    private Label player1Name;
+    @FXML
+    private Label player2Name;
+    @FXML
+    private Label player3Name;
+    @FXML
+    private Label endGameText;
+    @FXML
+    private VBox endGamePane;
+    @FXML 
+    private Button newGameButton;
+    @FXML 
+    private Button quitGameButton;
 
     public List<Player> players;
     
     public ArrayList <Player> playersList;
 
     public Player player;
+    public Member winner;
 
     @FXML
     public void initialize() {
+    	endGamePane.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
+    	endGamePane.getStyleClass().add("vbox");
+    	endGamePane.setVisible(false);
+    	setGraphicButton(newGameButton);
+    	setGraphicButton(quitGameButton);
+    	setGraphicButton(playButton);
+    	setGraphicButton(endTurnButton);
+    	setGraphicLabel(player1Name);
+    	setGraphicLabel(player2Name);
+    	setGraphicLabel(player3Name);
+    	setGraphicLabel(endGameText);
     }
 
     public void display() {
@@ -206,26 +242,80 @@ public class CardGameController {
     	int count = player.getDeck().getMembers().size();
     	
         cardNums1.setText("0");
+        player1Name.setText("");
         if (count >= 4) {
         	cardNums1.setText("" + player.getDeck().getMember((index + 3) % count).getHand().size());
+        	player1Name.setText(player.getDeck().getMember((index + 3) % count).getName());
         }
         cardNums1.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
     	cardNums1.getStyleClass().add("text-bordered");
+    	player1Name.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
+    	player1Name.getStyleClass().add("text-bordered");
 
     	
         cardNums2.setText("0");
+        player2Name.setText("");
         if (count >= 3) {
         	cardNums2.setText("" + player.getDeck().getMember((index + 2) % count).getHand().size());
+        	player2Name.setText(player.getDeck().getMember((index + 2) % count).getName());
         }
         cardNums2.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
     	cardNums2.getStyleClass().add("text-bordered");
+    	player2Name.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
+    	player2Name.getStyleClass().add("text-bordered");
 
     	
         cardNums3.setText("0");
-        if (count >= 2) {
+        player3Name.setText("");
+        if (count >= 2) {        	
         	cardNums3.setText("" + player.getDeck().getMember((index + 1) % count).getHand().size());
+        	player3Name.setText(player.getDeck().getMember((index + 1) % count).getName());
         }
         cardNums3.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
     	cardNums3.getStyleClass().add("text-bordered");
+    	player3Name.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
+    	player3Name.getStyleClass().add("text-bordered");
     }
+    public void endGamePane() {
+    	endGamePane.setVisible(true);
+    	endGameText.setText(winner.getName() + " la nguoi chien thang");
+    }
+    @FXML
+    private void newGame(ActionEvent e) {
+    	Deck deck = player.getDeck();
+    	deck.newGame();
+    	endGamePane.setVisible(false);
+    }
+    @FXML
+    private void quitGame(ActionEvent e) {
+    	try {
+        	FXMLLoader loader = new FXMLLoader(getClass().getResource("/game/Menu.fxml"));
+    		Parent root = loader.load();
+    		
+    		root.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
+    		root.getStyleClass().add("root");
+    		Scene scene = new Scene(root);
+    		Stage stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
+    		stage.setScene(scene);
+    		stage.setTitle("Card Game GUI");
+    		stage.show();
+        	} catch (IOException e1) {
+    		// TODO Auto-generated catch block
+    		e1.printStackTrace();
+        	}
+    	
+	}
+    private void setGraphicButton(Button button) {
+    	button.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
+    	button.getStyleClass().add("play-again-button");
+    }
+	private void setGraphicLabel(Label label) {
+    	label.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
+    	label.getStyleClass().add("label-style");
+    	System.out.print(1);
+    }
+
+	public void setWinner(Member member) {
+		winner = member;	
+	}
 }

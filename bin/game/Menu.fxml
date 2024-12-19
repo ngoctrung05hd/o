@@ -2,7 +2,6 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
-<?import javafx.scene.control.ToggleButton?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
@@ -26,6 +25,5 @@
       <!-- Vùng nhập tên người chơi -->
       <VBox fx:id="nameBoxContainer" layoutX="251.0" layoutY="236.0" />
       <ComboBox fx:id="numBotsBox" layoutX="247.0" layoutY="172.0" onAction="#handleNumofBotSelection" prefHeight="27.0" prefWidth="210.0" promptText="Choose number of bots" />
-      <ToggleButton fx:id="graphicButton" layoutX="74.0" layoutY="173.0" mnemonicParsing="false" text="Graphicmode" />
    </children>
 </AnchorPane>

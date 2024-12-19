@@ -19,7 +19,7 @@
     -fx-text-fill: white; /* Màu chữ */
 }
 .root {
-    -fx-background-image: url("file:/C:/Users/ngoct/eclipse-workspace/OOP/src/image/player/background2.png");
+    -fx-background-image: url("file:/C:/Users/ADMIN/eclipse-workspace/prjoop5/o/src/image/player/background2.png");
     -fx-background-repeat: no-repeat;
     -fx-background-size: cover;
     -fx-background-position: center center;
@@ -92,6 +92,15 @@
     -fx-background-color: linear-gradient(to bottom, #ffa726, #ff8c00); /* Hiệu ứng hover */
     -fx-effect: dropshadow(gaussian, #000, 12, 0.4, 0, 5); /* Đổ bóng mạnh hơn */
 }
+.vbox {
+	-fx-background-color: black;
+    -fx-background-size: cover; /* Để hình nền phủ kín vbox */
+    -fx-background-repeat: no-repeat; /* Không lặp lại hình nền */
+    -fx-background-position: center; /* Căn giữa hình nền */
+    -fx-border-color: white; /* Màu viền */
+    -fx-border-width: 2px; /* Độ dày của viền */
+    -fx-border-style: solid; /* Kiểu viền */
+    }
 
 
 

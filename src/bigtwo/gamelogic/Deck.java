@@ -90,6 +90,8 @@ public class Deck implements base.Deck{
     	if (members.get(currentMemberId).getHand().size() == 0) {
     		System.out.println("Player " + members.get(currentMemberId) + " chien thang\n");
     		controller.display();
+    		controller.setWinner(members.get(currentMemberId));
+    		controller.endGamePane();
     	}
     }
     
